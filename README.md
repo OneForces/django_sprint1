@@ -2,10 +2,6 @@
 
 ## Это часть работы над проектом Блогикум:
 
-- Блогикум часть 1 ⬅ *этот репозиторий*
-- [Блогикум часть 2](https://github.com/Dmitriy-boytsev/django_sprint3)
-- [Блогикум часть 3](https://github.com/Dmitriy-boytsev/django_sprint4) - Финальная версия
-
 ## Технологии:
 
 - Python 3.9
