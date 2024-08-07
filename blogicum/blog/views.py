@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 
 posts = [
@@ -43,15 +44,19 @@ posts = [
     },
 ]
 
+
 def index(request):
-    context = {'posts': posts}
+    context = {'post_lst': reversed(posts)}
     return render(request, 'blog/index.html', context)
 
+
 def post_detail(request, id):
-    post = next(post for post in posts if post['id'] == id)
-    context = {'post': post}
-    return render(request, 'blog/detail.html', context)
+    for post in posts:
+        if post['id'] == id:
+            return render(request, 'blog/detail.html', {'post': posts[id]})
+    raise Http404('Page not found')
+
 
 def category_posts(request, category_slug):
-    context = {'category_slug': category_slug}
+    context = {'category': category_slug}
     return render(request, 'blog/category.html', context)
